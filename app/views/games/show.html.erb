@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Event:</b>
+  <%= @game.event_id %>
+</p>
+
+<p>
+  <b>Format:</b>
+  <%= @game.format_id %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @game.number %>
+</p>
+
+<p>
+  <b>Legend:</b>
+  <%= @game.legend %>
+</p>
+
+<p>
+  <b>Prequel:</b>
+  <%= @game.prequel %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @game.price %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @game.area %>
+</p>
+
+<p>
+  <b>Brief place:</b>
+  <%= @game.brief_place %>
+</p>
+
+<p>
+  <b>Team list:</b>
+  <%= @game.team_list %>
+</p>
+
+<p>
+  <b>Dopy list:</b>
+  <%= @game.dopy_list %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

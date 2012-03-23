@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>S.M.I.L.E.</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header></header>
+<section id="content">
+  <nav>
+    <ul>
+      <li><a href="<%= events_path %>">Новости</a></li>
+      <li><a href="#">О нас</a></li>
+      <li><a href="#">Моя страница</a></li>
+    </ul>
+  </nav>
+  <div>
+    <p class="notice"><%= notice %></p><br>
+    <p class="alert"><%= alert %></p>
+  </div>
+
+  <%= yield %>
+
+</section>
+</body>
+</html>
