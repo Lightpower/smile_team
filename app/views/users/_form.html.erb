@@ -20,12 +20,8 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :group_id %><br />
-    <%= f.number_field :group_id %>
-  </div>
-  <div class="field">
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.select :role, User::ROLES %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -42,14 +38,6 @@
   <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_select :birthday %>
-  </div>
-  <div class="field">
-    <%= f.label :game_count %><br />
-    <%= f.number_field :game_count %>
-  </div>
-  <div class="field">
-    <%= f.label :scores %><br />
-    <%= f.number_field :scores %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,13 @@
+<div id="user_panel" class="round">
+  <ul>
+    <% unless user_signed_in? %>
+      <li><a href="<%= new_user_registration_path %>">Зарегистрироваться</a></li>
+      <li><a href="<%= new_user_session_path %>">Войти</a></li>
+    <% else %>
+      <div><b><%= current_user.login || current_user.email %> (<%= current_user.role %>)</b></div>
+      <li><a href="#">Личная страница</a></li>
+      <li><a href="#">Сменить пароль</a></li>
+      <li><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
+    <% end %>
+  </ul>
+</div>

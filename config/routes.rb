@@ -5,7 +5,9 @@ SmileTeam::Application.routes.draw do
 
   resources :events
 
-  resources :users
+  resource :users do
+    get :index, on: :collection
+  end
 
   root :to => "home#index"
 
