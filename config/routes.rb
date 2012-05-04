@@ -1,13 +1,18 @@
 SmileTeam::Application.routes.draw do
-  devise_for :users
-
+  devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   resources :games
 
   resources :events
 
-  resource :users do
-    get :index, on: :collection
-  end
+  # resource :users
+  match "/users" => "users#index",          via: :get,    as: :users
+  match "/users" => "users#create",         via: :post,   as: :users
+  match "/users/new" => "users#new",        via: :get,    as: :new_user
+  match "/users/:id/edit" => "users#edit",  via: :get,    as: :edit_user
+  match "/users/:id" => "users#show",       via: :get,    as: :user
+  match "/users/:id" => "users#update",     via: :put,    as: :user
+  match "/users/:id" => "users#destroy",    via: :delete, as: :user
+
 
   root :to => "home#index"
 
