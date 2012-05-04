@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe UsersController do
 
-  it "should do something" do
+  context "index" do
+    before :each do
+      #User.create()
+    end
 
-    #To change this template use File | Settings | File Templates.
-    true.should == false
+
   end
 end
