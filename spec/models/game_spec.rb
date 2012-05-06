@@ -3,6 +3,7 @@ require "rspec"
 describe Game do
 
   it { should belong_to(:event) }
+  it { should belong_to(:project_format) }
 
   it { should have_db_column(:event_id).of_type(:integer) }
   it { should have_db_column(:format_id).of_type(:integer) }
