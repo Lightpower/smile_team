@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 201205040003400) do
 
   create_table "project_formats", :force => true do |t|
     t.string   "name"
+    t.integer  "project_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
