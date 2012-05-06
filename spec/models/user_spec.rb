@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe User do
 
+  it { should have_many(:events)}
+  it { should have_many(:invites)}
+  it { should have_many(:events).through(:invites)}
+
+  it { should belong_to(:group)}
+
   it { should have_db_column(:group_id).of_type(:integer)}
   it { should have_db_column(:role).of_type(:string) }
   it { should have_db_column(:first_name).of_type(:string) }
