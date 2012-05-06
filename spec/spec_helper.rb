@@ -3,12 +3,16 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require "devise/test_helpers"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -30,3 +34,24 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+#def authenticate_user(role=nil, user=nil)
+#  # if user=nil and role=nil create admin by default
+#  debugger
+#  @user = user || FactoryGirl.create(role)
+#  @user.stub!(:sign_in_count).and_return(0)
+#  @user.stub!(:sign_in_count=)
+#  @user.stub!(:authentication_token).and_return('123qwe')
+#  controller.sign_in(@user)
+#end
+
+def authenticate_user(a=nil, b=nil)
+  @user = FactoryGirl.create(:admin_user)
+  @user.stub!(:disabled?).and_return(false)
+  @user.stub!(:sign_in_count).and_return(0)
+  @user.stub!(:sign_in_count=)
+  @user.stub!(:authentication_token).and_return('123qwe')
+  controller.sign_in(@user)
+end
+
+
