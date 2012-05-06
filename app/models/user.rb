@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  has_many :events, as: :created_events
+  has_many :invites
+  has_many :events, through: :invites, as: :invited_events
+
+  belongs_to :group
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
