@@ -23,7 +23,11 @@ describe User do
   it { should have_db_column(:last_sign_in_ip).of_type(:string) }
   it { should have_db_column(:login).of_type(:string) }
 
-  describe '' do
+  it { should have_db_index(:email).unique(true) }
+  it { should have_db_index(:login) }
+  it { should have_db_index(:reset_password_token).unique(true) }
+
+  describe 'methods' do
     before :each do
       @user = FactoryGirl.create(:guest_user)
     end
