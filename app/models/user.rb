@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   belongs_to :group
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+      :login, :first_name, :last_name, :birthday, :role
 
   # Default scopes, default values (e.g. self.per_page =)
   ROLES = %w'guest mate leader captain admin'
