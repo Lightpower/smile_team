@@ -5,6 +5,7 @@
  *= require_self
  *= require_tree .
 */
+
 div.header {
     text-align: center;
 }
@@ -20,5 +21,31 @@ div.round {
     -webkit-box-shadow: 4px 4px 5px #282b1f;
     -moz-box-shadow: 4px 4px 5px #282b1f;
     box-shadow: 4px 4px 5px #282b1f;
+}
 
+
+div.content {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    border-color: #000000;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+
+div.nav {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #CCCCCC;
+    border-color: #000000;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    -webkit-box-shadow: 4px 4px 5px #282b1f;
+    -moz-box-shadow: 4px 4px 5px #282b1f;
+    box-shadow: 4px 4px 5px #282b1f;
+    padding: 3px;
 }
