@@ -1,33 +1,13 @@
-<h1>Listing events</h1>
+<h1>Новости</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th>Type</th>
-    <th>Start date</th>
-    <th>Finish date</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div>
+  <%= link_to 'Новое событие', new_event_path %>
+</div>
 
 <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.desc %></td>
-    <td><%= event.type %></td>
-    <td><%= event.start_date %></td>
-    <td><%= event.finish_date %></td>
-    <td><%= event.author_id %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <% if can? :read, event %>
+    <% if event.game %>
+      <%= render "games/game", locals: { event:  event } %>
+    <% end %>
+  <% end %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
