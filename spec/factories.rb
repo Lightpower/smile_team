@@ -19,6 +19,10 @@ FactoryGirl.define do
       role 'mate'
     end
 
+    factory :leader_user do
+      role 'leader'
+    end
+
     factory :captain_user do
       role 'captain'
     end
