@@ -1,4 +1,4 @@
-<% if current_user && current_user.is_admin? %>
+<% if can? :read, User %>
   <div id="admin_panel" class="nav">
     <ul>
       <div><b>Панель админа</b></div>
