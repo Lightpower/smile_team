@@ -37,23 +37,17 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
 end
 
-#def authenticate_user(role=nil, user=nil)
-#  # if user=nil and role=nil create admin by default
-#  debugger
-#  @user = user || FactoryGirl.create(role)
-#  @user.stub!(:sign_in_count).and_return(0)
-#  @user.stub!(:sign_in_count=)
-#  @user.stub!(:authentication_token).and_return('123qwe')
-#  controller.sign_in(@user)
-#end
-
-def authenticate_user(a=nil, b=nil)
-  @user = FactoryGirl.create(:admin_user)
-  @user.stub!(:disabled?).and_return(false)
+def authenticate_user(role_or_user=nil)
+  # if user=nil and role=nil create admin by default
+  role = (role_or_user.class == Symbol) ? role_or_user : nil
+  user = (role_or_user.class == User) ? role_or_user : nil
+  role ||= :admin_user
+  @user = user || FactoryGirl.create(role)
   @user.stub!(:sign_in_count).and_return(0)
   @user.stub!(:sign_in_count=)
   @user.stub!(:authentication_token).and_return('123qwe')
   controller.sign_in(@user)
 end
+
 
 
