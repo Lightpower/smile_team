@@ -4,7 +4,7 @@ describe Event do
 
   it { should have_one(:game) }
 
-  it { should belong_to(:user) }
+  it { should belong_to(:author) }
 
   it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:desc).of_type(:string) }
