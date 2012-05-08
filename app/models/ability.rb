@@ -3,7 +3,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.is?(:disabled)
+    if ! user.is_enabled
+
     elsif user.role == "guest"
 
     elsif user.role == "mate"
