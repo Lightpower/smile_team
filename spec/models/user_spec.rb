@@ -28,6 +28,7 @@ describe User do
   it { should have_db_column(:current_sign_in_ip).of_type(:string) }
   it { should have_db_column(:last_sign_in_ip).of_type(:string) }
   it { should have_db_column(:login).of_type(:string) }
+  it { should have_db_column(:is_enabled).of_type(:boolean).with_options({default: true, null: false}) }
 
   it { should have_db_index(:email).unique(true) }
   it { should have_db_index(:login) }
