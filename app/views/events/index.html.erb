@@ -1,6 +1,6 @@
 <h1>Новости</h1>
 
-<div>
+<div class="nav">
   <% if can? :manage, Event %>
     <%= link_to 'Новое событие', new_event_path %>
   <% end %>
@@ -9,7 +9,7 @@
 <% @events.each do |event| %>
   <% if event.type == "Game" %>
     <% if can? :read, event %>
-      <%= render "games/game", locals: { event:  event } %>
+      <%= render "games/game", event:  event %>
     <% end %>
   <% end %>
 <% end %>
