@@ -53,3 +53,8 @@ div.nav {
 div.datetime_select select {
     width: 80px;
 }
+
+textarea {
+    width: 500px;
+    height: 200px;
+}
