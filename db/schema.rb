@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 201205040003400) do
+ActiveRecord::Schema.define(:version => 20120720102300) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 201205040003400) do
 
   create_table "users", :force => true do |t|
     t.integer  "group_id"
-    t.string   "role"
+    t.string   "site_role"
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthday"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 201205040003400) do
     t.string   "last_sign_in_ip"
     t.string   "login"
     t.boolean  "is_enabled",             :default => true, :null => false
+    t.string   "team_role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
