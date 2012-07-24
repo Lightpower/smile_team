@@ -49,3 +49,7 @@ div.nav {
     box-shadow: 4px 4px 5px #282b1f;
     padding: 3px;
 }
+
+div.datetime_select select {
+    width: 80px;
+}
