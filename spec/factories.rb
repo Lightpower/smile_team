@@ -6,6 +6,14 @@ FactoryGirl.define do
     "email.#{n}@example.com"
   end
 
+  sequence :title do |n|
+    "title #{n}"
+  end
+
+  sequence :number do |n|
+    n
+  end
+
   factory :user do
     email         { FactoryGirl.generate(:email) }
     password              '123456'
@@ -31,6 +39,29 @@ FactoryGirl.define do
       site_role 'admin'
     end
 
+  end
+
+  factory :project do
+    name  FactoryGirl.generate(:title)
+  end
+
+  factory :project_format do
+    name     FactoryGirl.generate(:title)
+    project  FactoryGirl.create(:project)
+  end
+
+  factory :event do
+    name       FactoryGirl.generate(:title)
+    desc       "Event description"
+    type       "Game"
+    start_date DateTime.now
+    author     FactoryGirl.create(:admin_user)
+  end
+
+  factory :game do
+    event          FactoryGirl.create(:event)
+    project_format FactoryGirl.create(:project_format)
+    number         FactoryGirl.generate(:number)
   end
 
 
