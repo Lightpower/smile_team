@@ -12,38 +12,39 @@
 
 
 <div class="field">
-  <%= f.label :format_id %>
-  <%= f.number_field :format_id %>
+  <%= f.label :format_id, "Формат" %>
+  <%= grouped_collection_select(:game, :format_id, @projects, :project_formats, :name, :id, :name, :prompt => true) %>
+  <%#= f.number_field :format_id %>
 </div>
 <div class="field">
-  <%= f.label :number %>
+  <%= f.label :number, "Номер" %>
   <%= f.number_field :number %>
 </div>
 <div class="field">
-  <%= f.label :legend %>
+  <%= f.label :legend, "Легенда" %>
   <%= f.text_area :legend %>
 </div>
 <div class="field">
-  <%= f.label :prequel %>
+  <%= f.label :prequel, "Приквел" %>
   <%= f.text_area :prequel %>
 </div>
 <div class="field">
-  <%= f.label :price %>
+  <%= f.label :price, "Цена" %>
   <%= f.number_field :price %>
 </div>
 <div class="field">
-  <%= f.label :area %>
+  <%= f.label :area, "Дозотория" %>
   <%= f.text_field :area %>
 </div>
 <div class="field">
-  <%= f.label :brief_place %>
+  <%= f.label :brief_place, "Место брифинга" %>
   <%= f.text_field :brief_place %>
 </div>
 <div class="field">
-  <%= f.label :team_list %>
-  <%= f.text_field :team_list %>
+  <%= f.label :team_list, "Список команд" %>
+  <%= f.text_area :team_list %>
 </div>
 <div class="field">
-  <%= f.label :dopy_list %>
-  <%= f.text_field :dopy_list %>
+  <%= f.label :dopy_list, "Дополнительные принадлежности" %>
+  <%= f.text_area :dopy_list %>
 </div>

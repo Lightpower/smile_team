@@ -1,9 +1,9 @@
-<div>
+<div class="content game_<%= event.game.project.name.downcase %>">
   <h3>#<%= event.game.number %> - <%= event.start_date %> - "<%= event.name %>"</h3>
   <h3>Описание</h3>
   <p><%= event.desc %></p>
 
-  <p>(автор: <%= event.author.login %>)</p>
+  <p>(автор: <%= event.author.show_name %>)</p>
 
   <%= link_to('Открыть', event) if can? :read, event %>
   <%= link_to('Изменить', edit_event_path(event)) if can? :manage, event %>
