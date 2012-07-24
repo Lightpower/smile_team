@@ -25,4 +25,16 @@ class User < ActiveRecord::Base
     self.site_role == 'admin'
   end
 
+  def show_name
+    if(first_name.present? || last_name.present?)
+      return_string = "#{first_name} #{last_name}".strip
+    end
+    if login.present?
+      return_string = "#{return_string} (#{login})".strip
+    end
+    if return_string.blank?
+      email
+    end
+  end
+
 end
