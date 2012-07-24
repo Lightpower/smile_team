@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-      :login, :first_name, :last_name, :birthday, :role
+      :login, :first_name, :last_name, :birthday, :team_role
 
   # Default scopes, default values (e.g. self.per_page =)
   ROLES = %w'guest mate leader captain admin'
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   @@per_page = 20
 
   def is_admin?
-    self.role == 'admin'
+    self.site_role == 'admin'
   end
 
 end
