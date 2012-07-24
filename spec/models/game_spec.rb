@@ -1,4 +1,5 @@
 require "rspec"
+require "spec_helper"
 
 describe Game do
 
@@ -19,5 +20,19 @@ describe Game do
   it { should have_db_column(:updated_at).of_type(:datetime) }
 
   it { should have_db_index(:event_id).unique(true) }
+
+  it { should validate_presence_of(:event) }
+  it { should validate_presence_of(:project_format) }
+
+  describe "provides project" do
+    before :all do
+      @game = FactoryGirl.create(:game)
+      @format = @game.project_format
+    end
+    it "success" do
+      @game.project.should == @format.project
+    end
+
+  end
 
 end

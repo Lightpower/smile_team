@@ -15,4 +15,6 @@ describe Event do
   it { should have_db_column(:created_at).of_type(:datetime) }
   it { should have_db_column(:updated_at).of_type(:datetime) }
 
+  it { should validate_presence_of(:author) }
+
 end
