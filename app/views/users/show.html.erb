@@ -1,55 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Login:</b>
+  <b>Логин:</b>
   <%= @user.login %>
 </p>
-
 <p>
-  <b>Password:</b>
-  <%= @user.password %>
+  <b>Группа:</b>
+  <%= @user.group.try(:name) %>
 </p>
-
 <p>
-  <b>Group:</b>
-  <%= @user.group_id %>
+  <b>Роль на сайте:</b>
+  <%= @user.site_role %>
 </p>
-
 <p>
-  <b>Role:</b>
-  <%= @user.role %>
+  <b>Роль в команде:</b>
+  <%= @user.team_role %>
 </p>
-
 <p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
-
 <p>
-  <b>First name:</b>
+  <b>Имя:</b>
   <%= @user.first_name %>
 </p>
-
 <p>
-  <b>Last name:</b>
+  <b>Фамилия:</b>
   <%= @user.last_name %>
 </p>
-
 <p>
-  <b>Birthday:</b>
+  <b>День рождения:</b>
   <%= @user.birthday %>
 </p>
-
 <p>
-  <b>Game count:</b>
+  <b>Сыграно игр:</b>
   <%= @user.game_count %>
 </p>
-
 <p>
-  <b>Scores:</b>
+  <b>Очков:</b>
   <%= @user.scores %>
 </p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -52,7 +52,7 @@ describe UsersController do
   context "create" do
     before :each do
       authenticate_user(:admin_user)
-      params = {email: "email@example.ua", role: "guest", password: "123456", password_confirmation: "123456"}
+      params = {email: "email@example.ua", site_role: "guest", password: "123456", password_confirmation: "123456"}
       post :create, params: params
     end
 
@@ -69,7 +69,7 @@ describe UsersController do
 
     it "success" do
       User.where(id: @user.id).size.should == 1
-      params = {id: @user.id, email: "email@example.ua", role: "mate", password: "123456", password_confirmation: "123456"}
+      params = {id: @user.id, email: "email@example.ua", site_role: "mate", password: "123456", password_confirmation: "123456"}
       put :update, params
     end
   end

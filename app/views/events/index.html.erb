@@ -1,12 +1,14 @@
 <h1>Новости</h1>
 
 <div>
-  <%= link_to 'Новое событие', new_event_path %>
+  <% if can? :manage, Event %>
+    <%= link_to 'Новое событие', new_event_path %>
+  <% end %>
 </div>
 
 <% @events.each do |event| %>
-  <% if can? :read, event %>
-    <% if event.game %>
+  <% if event.type == "Game" %>
+    <% if can? :read, event %>
       <%= render "games/game", locals: { event:  event } %>
     <% end %>
   <% end %>

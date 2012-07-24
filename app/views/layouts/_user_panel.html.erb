@@ -4,8 +4,8 @@
       <li><a href="<%= new_user_registration_path %>">Зарегистрироваться</a></li>
       <li><a href="<%= new_user_session_path %>">Войти</a></li>
     <% else %>
-      <div><b><%= current_user.login || current_user.email %> (<%= current_user.role %>)</b></div>
-      <li><a href="#">Личная страница</a></li>
+      <div><b><%= current_user.login || current_user.email %> (<%= current_user.site_role %>)</b></div>
+      <li><%= link_to "Личная страница", user_path(current_user) %></li>
       <li><a href="#">Сменить пароль</a></li>
       <li><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
     <% end %>

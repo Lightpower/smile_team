@@ -12,35 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label :login, "Логин" %>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Пароль" %>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Подтверждение пароля" %>
     <%= f.text_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, User::ROLES %>
+    <%= f.label :site_role, "Роль на сайте" %>
+    <%= f.select :site_role, User::ROLES %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :team_role, "Роль в команде" %>
+    <%= f.text_field :team_role %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name, "Имя" %>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name, "Фамилия" %>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br />
+    <%= f.label :birthday, "Дата рождения" %>
     <%= f.date_select :birthday %>
   </div>
   <div class="actions button">

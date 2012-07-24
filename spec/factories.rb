@@ -12,23 +12,23 @@ FactoryGirl.define do
     password_confirmation '123456'
 
     factory :guest_user do
-      role 'guest'
+      site_role 'guest'
     end
 
     factory :mate_user do
-      role 'mate'
+      site_role 'mate'
     end
 
     factory :leader_user do
-      role 'leader'
+      site_role 'leader'
     end
 
     factory :captain_user do
-      role 'captain'
+      site_role 'captain'
     end
 
     factory :admin_user do
-      role 'admin'
+      site_role 'admin'
     end
 
   end

@@ -9,7 +9,8 @@ describe User do
   it { should belong_to(:group)}
 
   it { should have_db_column(:group_id).of_type(:integer)}
-  it { should have_db_column(:role).of_type(:string) }
+  it { should have_db_column(:site_role).of_type(:string) }
+  it { should have_db_column(:team_role).of_type(:string) }
   it { should have_db_column(:first_name).of_type(:string) }
   it { should have_db_column(:last_name).of_type(:string) }
   it { should have_db_column(:birthday).of_type(:date) }

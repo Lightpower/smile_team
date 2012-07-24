@@ -1,34 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Название:</b>
   <%= @event.name %>
 </p>
 
 <p>
-  <b>Desc:</b>
+  <b>Описание:</b>
   <%= @event.desc %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>Тип:</b>
   <%= @event.type %>
 </p>
 
 <p>
-  <b>Start date:</b>
+  <b>Начало:</b>
   <%= @event.start_date %>
 </p>
 
 <p>
-  <b>Finish date:</b>
+  <b>Конец:</b>
   <%= @event.finish_date %>
 </p>
 
 <p>
-  <b>Author:</b>
-  <%= @event.author_id %>
+  <b>Автор:</b>
+  <%= @event.author.try(:login) %>
 </p>
+
+<%= render "games/show" %>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
