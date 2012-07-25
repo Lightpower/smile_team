@@ -44,6 +44,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event.author = current_user
+    @event.event_type = "Game"
+    @event.game.event = @event
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
