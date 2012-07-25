@@ -1,11 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.6'
 gem 'devise'
-gem "cancan"
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'cancan'
 
 gem 'pg'
 
@@ -13,9 +10,9 @@ gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -30,11 +27,11 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
-  gem "rspec-rails"
-  gem "capybara"
+  gem 'rspec-rails'
+  gem 'capybara'
   gem 'factory_girl_rails'
-  gem "shoulda"
+  gem 'shoulda'
+  gem 'debugger'
 end
