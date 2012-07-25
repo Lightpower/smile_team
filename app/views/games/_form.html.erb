@@ -1,3 +1,4 @@
+<% game ||= @event.game if @event.present? %>
 <% if game.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
@@ -13,7 +14,7 @@
 
 <div class="field">
   <%= f.label :format_id, "Формат" %>
-  <%= grouped_collection_select(:game, :format_id, @projects, :project_formats, :name, :id, :name, :prompt => true) %>
+  <%= f.grouped_collection_select(:format_id, @projects, :project_formats, :name, :id, :name, :prompt => true) %>
   <%#= f.number_field :format_id %>
 </div>
 <div class="field">
