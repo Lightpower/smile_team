@@ -29,6 +29,12 @@ describe Game do
       @game = FactoryGirl.create(:game)
       @format = @game.project_format
     end
+    after :all do
+      Game.delete_all
+      ProjectFormat.delete_all
+      Project.delete_all
+    end
+
     it "success" do
       @game.project.should == @format.project
     end
