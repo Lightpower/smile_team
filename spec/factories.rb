@@ -42,26 +42,26 @@ FactoryGirl.define do
   end
 
   factory :project do
-    name  FactoryGirl.generate(:title)
+    name  { FactoryGirl.generate(:title) }
   end
 
   factory :project_format do
-    name     FactoryGirl.generate(:title)
-    project  FactoryGirl.create(:project)
+    name     { FactoryGirl.generate(:title) }
+    project  { FactoryGirl.create(:project) }
   end
 
   factory :event do
-    name       FactoryGirl.generate(:title)
+    name       { FactoryGirl.generate(:title) }
     desc       "Event description"
-    type       "Game"
-    start_date DateTime.now
-    author     FactoryGirl.create(:admin_user)
+    event_type "Game"
+    start_date { DateTime.now }
+    author     { FactoryGirl.create(:admin_user) }
   end
 
   factory :game do
-    event          FactoryGirl.create(:event)
-    project_format FactoryGirl.create(:project_format)
-    number         FactoryGirl.generate(:number)
+    event          { FactoryGirl.create(:event) }
+    project_format { FactoryGirl.create(:project_format) }
+    number         { FactoryGirl.generate(:number) }
   end
 
 
