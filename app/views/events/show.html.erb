@@ -27,11 +27,11 @@
 
 <p>
   <b>Автор:</b>
-  <%= @event.author.try(:login) %>
+  <%= @event.author.show_name %>
 </p>
 
-<%= render "games/show" %>
+<%= render "games/show", game: @event.game %>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Изменить', edit_event_path(@event) %> |
+<%= link_to 'Назад', events_path %>
