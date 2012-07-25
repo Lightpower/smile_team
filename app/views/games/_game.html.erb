@@ -1,12 +1,9 @@
 <div class="content game_<%= event.game.project.name.downcase %>">
-  <h3>#<%= event.game.number %> - <%= event.start_date %> - "<%= event.name %>"</h3>
-  <h3>Описание</h3>
+  <b><%= event.start_date.strftime("%d.%m %H:%M") %></b>
+  <h3>#<%= event.game.number %> - "<%= event.name %>"</h3>
+  <p>(автор: <%= event.author.show_name %>)</p>
+  <br><h4>Описание</h4>
   <p><%= event.desc %></p>
 
-  <p>(автор: <%= event.author.show_name %>)</p>
-
-  <%= link_to('Открыть', event) if can? :read, event %>
-  <%= link_to('Изменить', edit_event_path(event)) if can? :manage, event %>
-  <%= link_to('Удалить', event, confirm: 'Are you sure?', method: :delete) if can? :delete, event %>
 
 </div>
