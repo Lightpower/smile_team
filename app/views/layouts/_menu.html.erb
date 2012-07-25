@@ -1,6 +1,8 @@
 <div id="navigate" class="nav">
   <ul>
-    <li><a href="<%= events_path %>">Новости</a></li>
+    <% if can? :read, Event %>
+      <li><a href="<%= events_path %>">Новости</a></li>
+    <% end %>
     <li><a href="#">О нас</a></li>
     <li><a href="http://fadzone.kiev.ua/forum">ФОРУМ</a></li>
   </ul>
