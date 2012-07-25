@@ -33,6 +33,7 @@ div.content {
     border-width: 1px 1px 1px 1px;
     border-style: solid;
     padding: 10px;
+    margin-top: 5px;
 }
 
 
@@ -48,6 +49,21 @@ div.nav {
     -moz-box-shadow: 4px 4px 5px #282b1f;
     box-shadow: 4px 4px 5px #282b1f;
     padding: 3px;
+}
+
+a.nav_button {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #BBBBBB;
+    border-color: #000000;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    -webkit-box-shadow: 2px 2px 3px #282b1f;
+    -moz-box-shadow: 2px 2px 3px #282b1f;
+    box-shadow: 2px 2px 3px #282b1f;
+    padding: 2px;
+    font-weight: bold;
 }
 
 div.datetime_select select {
