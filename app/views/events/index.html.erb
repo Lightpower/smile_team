@@ -7,7 +7,7 @@
 </div>
 
 <% @events.each do |event| %>
-  <% if event.type == "Game" %>
+  <% if event.event_type == "Game" %>
     <% if can? :read, event %>
       <%= render "games/game", event:  event %>
     <% end %>
