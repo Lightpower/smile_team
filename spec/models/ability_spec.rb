@@ -3,7 +3,7 @@ require "cancan/matchers"
 
 describe Ability do
 
-  context "user#index" do
+  context "User" do
     before :all do
       @users = { guest:   FactoryGirl.create(:guest_user),
                  mate:    FactoryGirl.create(:mate_user),
@@ -14,19 +14,49 @@ describe Ability do
     after :all do
       User.delete_all
     end
-    it "can read users" do
+    it "is for admin" do
       @ability = Ability.new(@users[:admin])
       @ability.should be_able_to(:read, User)
+      @ability.should be_able_to(:manage, User)
     end
-    it "cannot read users" do
+    it "guest" do
       @ability = Ability.new(@users[:guest])
       @ability.should_not be_able_to(:read, User)
+      @ability.should_not be_able_to(:manage, User)
+    end
+    it "mate" do
       @ability = Ability.new(@users[:mate])
-      @ability.should_not be_able_to(:read, User)
+      @ability.should be_able_to(:read, User)
+      @users.each do |user|
+        if user == @users[:mate]
+          @ability.should be_able_to(:manage, user)
+        else
+          @ability.should_not be_able_to(:manage, user)
+        end
+      end
+    end
+    it "leader" do
       @ability = Ability.new(@users[:leader])
-      @ability.should_not be_able_to(:read, User)
+      @ability.should be_able_to(:read, User)
+      @ability.should be_able_to(:read, User)
+      @users.each do |user|
+        if user == @users[:mate]
+          @ability.should be_able_to(:manage, user)
+        else
+          @ability.should_not be_able_to(:manage, user)
+        end
+      end
+    end
+    it "captain" do
       @ability = Ability.new(@users[:captain])
-      @ability.should_not be_able_to(:read, User)
+      @ability.should be_able_to(:read, User)
+      @users.each do |user|
+        if user == @users[:mate]
+          @ability.should be_able_to(:manage, user)
+        else
+          @ability.should_not be_able_to(:manage, user)
+        end
+      end
     end
   end
 
