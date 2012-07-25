@@ -6,20 +6,20 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div><%= f.label :password, "Пароль" %> <i>(оставьте пустым, если не хотите менять пароль)</i><br />
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation, "Подтверждение пароль" %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div><%= f.label :current_password, "Текущий пароль" %> <i>(нам нужен текущий пароль для подтверждения изменений)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Обновить" %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Удалить учётную запись</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p><%= link_to "Удалить мою учётку", registration_path(resource_name), :confirm => "Вы уверены?", :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Назад", :back %>
