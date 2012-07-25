@@ -1,8 +1,8 @@
 <h1>Новости</h1>
 
-<div class="nav">
+<div>
   <% if can? :manage, Event %>
-    <%= link_to 'Новое событие', new_event_path %>
+    <%= link_to 'Новое событие', new_event_path, class: "nav_button" %>
   <% end %>
 </div>
 
