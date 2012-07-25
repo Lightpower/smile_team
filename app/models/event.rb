@@ -14,13 +14,4 @@ class Event < ActiveRecord::Base
 
   end
 
-  def type
-    if self.game.present?
-      "Game"
-    else
-      "Unknown"
-    end
-  end
-
-
 end
