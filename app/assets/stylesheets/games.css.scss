@@ -1,3 +1,70 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.game.dozor_classic {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color: #000000;
+  border-color: #F90;
+  border-width: 2px 2px 2px 2px;
+  border-style: solid;
+  padding: 10px;
+  margin-top: 5px;
+  color: #FFFFFF;
+
+  h1, h2, h3, h4 {
+    color: #F90;
+  }
+}
+
+div.game.dozor_lite {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #222222;
+  border-color: #dcc300;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  padding: 10px;
+  margin-top: 5px;
+  color: #FFFFFF;
+
+  h1, h2, h3, h4 {
+    color: #F90;
+  }
+}
+
+div.game.en_tochki {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #0D3B00;
+  border-color: lime;
+  border-width: 1px 1px 1px 1px;
+  border-style: dashed;
+  padding: 10px;
+  margin-top: 5px;
+  color: lime;
+
+  h1, h2, h3, h4 {
+    color: #FFFFFF;
+  }
+}
+
+div.game.en_cx {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #0D3B00;
+  border-color: lime;
+  border-width: 1px 1px 1px 1px;
+  border-style: dashed;
+  padding: 10px;
+  margin-top: 5px;
+  color: lime;
+
+  h1, h2, h3, h4 {
+    color: #FFFFFF;
+  }
+}
