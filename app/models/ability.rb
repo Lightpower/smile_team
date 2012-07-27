@@ -3,25 +3,37 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if ! user.is_enabled
 
-    elsif user.site_role == "guest"
+    if user.is_enabled # for all users except disabled
+
+    end
+
+    if user.site_role == "guest"
       can :read, Event
+      can :read, Game
+      can :manage, User, id: user.id
+      cannot :manage, :site_role
     elsif user.site_role == "mate"
       can :read, User
       can :manage, User, id: user.id
+      cannot :manage, :site_role
 
       can :read, Event
+      can :read, Game
     elsif user.site_role == "leader"
       can :read, User
       can :manage, User, id: user.id
+      cannot :manage, :site_role
 
       can :manage, Event
+      can :manage, Game
     elsif user.site_role == "captain"
       can :read, User
       can :manage, User, id: user.id
+      can :manage, :site_role
 
       can :manage, Event
+      can :manage, Game
     elsif user.site_role == "admin"
       can :manage, :all
     end
