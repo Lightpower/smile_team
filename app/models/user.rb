@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-      :login, :first_name, :last_name, :birthday, :team_role
+      :login, :first_name, :last_name, :birthday, :team_role, :group_id
 
   # Default scopes, default values (e.g. self.per_page =)
   ROLES = %w'guest mate leader captain admin'
@@ -25,16 +25,37 @@ class User < ActiveRecord::Base
     self.site_role == 'admin'
   end
 
+  ##
+  # Create the string with name of this user
+  #
   def show_name
-    if(first_name.present? || last_name.present?)
+    return_string = ""
+    if first_name.present? || last_name.present?
       return_string = "#{first_name} #{last_name}".strip
     end
     if login.present?
       return_string = "#{return_string} (#{login})".strip
     end
     if return_string.blank?
-      email
+      return_string = email
     end
+    return_string
+  end
+
+  ##
+  # Define if this user has no team and even did not request for one
+  #
+  # Returns {Boolean} - true if he has no team and request, otherwise false
+  def has_no_team?
+    self.group.blank?
+  end
+
+  ##
+  # Define if this user requested for team joining and his request is not considered
+  #
+  # Returns {Boolean} - true if he is waiting for approving, otherwise false
+  def waiting_for_approving?
+    self.group.present? && (self.site_role.blank? || (self.site_role == "guest"))
   end
 
 end
