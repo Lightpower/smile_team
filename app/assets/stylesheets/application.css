@@ -36,7 +36,6 @@ div.content {
     margin-top: 5px;
 }
 
-
 div.nav {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -51,7 +50,7 @@ div.nav {
     padding: 3px;
 }
 
-a.nav_button {
+.nav_button {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -64,7 +63,25 @@ a.nav_button {
     box-shadow: 2px 2px 3px #282b1f;
     padding: 2px;
     font-weight: bold;
+    margin-top: 5px;
 }
+
+.action_button {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #AAAAAA;
+    border-color: #000000;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    -webkit-box-shadow: 2px 2px 3px #282b1f;
+    -moz-box-shadow: 2px 2px 3px #282b1f;
+    box-shadow: 2px 2px 3px #282b1f;
+    padding: 2px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
 
 div.datetime_select select {
     width: 80px;
@@ -73,4 +90,8 @@ div.datetime_select select {
 textarea {
     width: 500px;
     height: 200px;
+}
+
+span.caption, label.caption {
+    font-weight: bold;
 }
