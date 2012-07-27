@@ -38,6 +38,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @projects = Project.all
+    @project_formats = ProjectFormat.all
   end
 
   # POST /events
@@ -82,4 +84,6 @@ class EventsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
+
