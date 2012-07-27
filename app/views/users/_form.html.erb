@@ -1,7 +1,7 @@
 <%= form_for @user, html: { class: "form-horizontal" } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> не дают сохранить пользователя:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -12,42 +12,53 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login, "Логин" %>
+    <%= f.label :login, "Логин", class: "caption" %>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :password, "Пароль" %>
+    <%= f.label :password, "Пароль", class: "caption" %>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, "Подтверждение пароля" %>
+    <%= f.label :password_confirmation, "Подтверждение пароля", class: "caption" %>
     <%= f.text_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :site_role, "Роль на сайте" %>
-    <%= f.select :site_role, User::ROLES %>
+    <% if (@user == current_user) && @user.has_no_team? %>
+      <span class="info">Вы не состоите ни в одной команде. Выберите команду, чтобы подать запрос на вступление в неё, и пните капитана, чтобы принял вас.</span>
+    <% elsif (@user == current_user) && @user.waiting_for_approving?%>
+      <span class=info>Заявка на вступление в команду принята. Ждите одобрения от капитана.</span>
+  <% end %>
+    <%= f.label :group_id, "Команда", class: "caption" %>
+    <%= f.select :group_id, Group.all.collect {|g| [g.name, g.id] }, {include_blank: "<команда не выбрана>"} %>
   </div>
+  <% if can? :manage, :site_role %>
+    <div class="field">
+      <%= f.label :site_role, "Роль на сайте", class: "caption" %>
+      <%= f.select :site_role, User::ROLES %>
+    </div>
+   <% end %>
   <div class="field">
-    <%= f.label :team_role, "Роль в команде" %>
+    <%= f.label :team_role, "Роль в команде", class: "caption" %>
     <%= f.text_field :team_role %>
   </div>
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label :email, class: "caption" %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :first_name, "Имя" %>
+    <%= f.label :first_name, "Имя", class: "caption" %>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name, "Фамилия" %>
+    <%= f.label :last_name, "Фамилия", class: "caption" %>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :birthday, "Дата рождения" %>
-    <%= f.date_select :birthday %>
+  <div class="field datetime_select">
+    <%= f.label :birthday, "Дата рождения", class: "caption" %>
+    <%= f.date_select :birthday, order: [:day, :month, :year] %>
   </div>
   <div class="actions button">
-    <%= f.submit %>
+    <%= f.submit "Сохранить", class: "action_button" %>
   </div>
 <% end %>
