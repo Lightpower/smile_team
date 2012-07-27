@@ -13,39 +13,39 @@
 
 
 <div class="field">
-  <%= f.label :format_id, "Формат" %>
+  <%= f.label :format_id, "Формат", class: "caption" %>
   <%= f.grouped_collection_select(:format_id, @projects, :project_formats, :name, :id, :name, :prompt => true) %>
   <%#= f.number_field :format_id %>
 </div>
 <div class="field">
-  <%= f.label :number, "Номер" %>
+  <%= f.label :number, "Номер", class: "caption" %>
   <%= f.number_field :number %>
 </div>
 <div class="field">
-  <%= f.label :legend, "Легенда" %>
+  <%= f.label :legend, "Легенда", class: "caption" %>
   <%= f.text_area :legend %>
 </div>
 <div class="field">
-  <%= f.label :prequel, "Приквел" %>
+  <%= f.label :prequel, "Приквел", class: "caption" %>
   <%= f.text_area :prequel %>
 </div>
 <div class="field">
-  <%= f.label :price, "Цена" %>
+  <%= f.label :price, "Цена", class: "caption" %>
   <%= f.number_field :price %>
 </div>
 <div class="field">
-  <%= f.label :area, "Дозотория" %>
+  <%= f.label :area, "Дозотория", class: "caption" %>
   <%= f.text_field :area %>
 </div>
 <div class="field">
-  <%= f.label :brief_place, "Место брифинга" %>
+  <%= f.label :brief_place, "Место брифинга", class: "caption" %>
   <%= f.text_field :brief_place %>
 </div>
 <div class="field">
-  <%= f.label :team_list, "Список команд" %>
+  <%= f.label :team_list, "Список команд", class: "caption" %>
   <%= f.text_area :team_list %>
 </div>
 <div class="field">
-  <%= f.label :dopy_list, "Дополнительные принадлежности" %>
+  <%= f.label :dopy_list, "Дополнительные принадлежности", class: "caption" %>
   <%= f.text_area :dopy_list %>
 </div>

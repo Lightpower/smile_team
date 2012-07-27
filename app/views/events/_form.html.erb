@@ -13,15 +13,15 @@
 
   <div id="event">
     <div class="field">
-      <%= f.label :name, "Название" %>
+      <%= f.label :name, "Название", class: "caption" %>
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :desc, "Описание" %>
+      <%= f.label :desc, "Описание", class: "caption" %>
       <%= f.text_area :desc %>
     </div>
     <div class="field datetime_select">
-      <%= f.label :start_date, "Начало" %>
+      <%= f.label :start_date, "Начало", class: "caption" %>
       <%= f.datetime_select :start_date, order: [:day, :month, :year, :hour, :minute] %>
     </div>
   </div>
@@ -33,6 +33,6 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить", class: "action_button" %>
   </div>
 <% end %>

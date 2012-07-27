@@ -26,9 +26,9 @@
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.birthday %></td>
-      <td><%= link_to 'Смотреть', user_path(user) %></td>
-      <td><%= link_to 'Править', edit_user_path(user) %></td>
-      <td><%= link_to 'Удалить', user_path(user), confirm: 'Точно удаляем?', method: :delete %></td>
+      <td><%= link_to 'Смотреть', user_path(user), class: "action_button" if can? :read, user %></td>
+      <td><%= link_to 'Править', edit_user_path(user), class: "action_button" if can? :manage, user %></td>
+      <td><%= link_to 'Удалить', user_path(user), confirm: 'Точно удаляем?', method: :delete, class: "action_button" if can? :manage, user %></td>
     </tr>
   </tbody>
 <% end %>
@@ -36,4 +36,4 @@
 
 <br />
 
-<%= link_to 'Новый пользователь', new_user_path, class: "button" %>
+<%= link_to 'Новый пользователь', new_user_path, class: "action_button" if can? :manage, User %>

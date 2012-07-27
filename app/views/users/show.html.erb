@@ -1,45 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Логин:</b>
-  <%= @user.login %>
-</p>
-<p>
-  <b>Группа:</b>
-  <%= @user.group.try(:name) %>
-</p>
-<p>
-  <b>Роль на сайте:</b>
-  <%= @user.site_role %>
-</p>
-<p>
-  <b>Роль в команде:</b>
-  <%= @user.team_role %>
-</p>
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-<p>
-  <b>Имя:</b>
-  <%= @user.first_name %>
-</p>
-<p>
-  <b>Фамилия:</b>
-  <%= @user.last_name %>
-</p>
-<p>
-  <b>День рождения:</b>
-  <%= @user.birthday %>
-</p>
-<p>
-  <b>Сыграно игр:</b>
-  <%= @user.game_count %>
-</p>
-<p>
-  <b>Очков:</b>
-  <%= @user.scores %>
-</p>
+<div class="content">
+  <p>
+    <b>Логин:</b>
+    <%= @user.login %>
+  </p>
+  <p>
+    <b>Команда:</b>
+    <%= @user.has_no_team? ? "Не в команде" : @user.group.name %>
+    <%= content_tag(:span, " (ожидание авторизации)", class: "info") if @user.waiting_for_approving? %>
+  </p>
+  <p>
+    <b>Роль на сайте:</b>
+    <%= @user.site_role %>
+  </p>
+  <p>
+    <b>Роль в команде:</b>
+    <%= @user.team_role %>
+  </p>
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
+  <p>
+    <b>Имя:</b>
+    <%= @user.first_name %>
+  </p>
+  <p>
+    <b>Фамилия:</b>
+    <%= @user.last_name %>
+  </p>
+  <p>
+    <b>День рождения:</b>
+    <%= @user.birthday %>
+  </p>
+  <p>
+    <b>Сыграно игр:</b>
+    <%= @user.game_count %>
+  </p>
+  <p>
+    <b>Очков:</b>
+    <%= @user.scores %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Править', edit_user_path(@user), class: "nav_button" if can? :manage, @user %>
+<%= link_to 'Назад', users_path, class: "nav_button" %>

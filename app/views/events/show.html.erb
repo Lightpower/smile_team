@@ -33,5 +33,5 @@
 <%= render "games/show", game: @event.game %>
 
 
-<%= link_to 'Изменить', edit_event_path(@event) %> |
-<%= link_to 'Назад', events_path %>
+<%= link_to 'Править', edit_event_path(@event), class: "action_button" if can? :manage, @event %>
+<%= link_to 'Назад', events_path, class: "action_button" %>
