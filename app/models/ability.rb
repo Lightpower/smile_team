@@ -5,35 +5,34 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     if user.is_enabled # for all users except disabled
-
+      can :manage, User, id: user.id
     end
 
     if user.site_role == "guest"
       can :read, Event
       can :read, Game
-      can :manage, User, id: user.id
       cannot :manage, :site_role
     elsif user.site_role == "mate"
-      can :read, User
+      can :read, User, group_id: user.group_id
       can :manage, User, id: user.id
       cannot :manage, :site_role
 
       can :read, Event
       can :read, Game
     elsif user.site_role == "leader"
-      can :read, User
-      can :manage, User, id: user.id
+      can :read, User, group_id: user.group_id
       cannot :manage, :site_role
 
       can :manage, Event
       can :manage, Game
     elsif user.site_role == "captain"
-      can :read, User
-      can :manage, User, id: user.id
+      can :read, User, group_id: user.group_id
       can :manage, :site_role
 
       can :manage, Event
       can :manage, Game
+
+      can :manage, :join_requests
     elsif user.site_role == "admin"
       can :manage, :all
     end
