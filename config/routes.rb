@@ -1,6 +1,7 @@
 SmileTeam::Application.routes.draw do
   devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout' }
-  resources :games
+
+  root :to => "home#index"
 
   resources :events
 
@@ -12,9 +13,13 @@ SmileTeam::Application.routes.draw do
   match "/users/:id" => "users#show",       via: :get,    as: :user
   match "/users/:id" => "users#update",     via: :put,    as: :user
   match "/users/:id" => "users#destroy",    via: :delete, as: :user
+  match "/users/:id/approve_join_request" => "users#approve_join_request",  via: :get, as: :approve_join_request
+  match "/users/:id/reject_join_request" => "users#reject_join_request",    via: :get, as: :reject_join_request
 
+  match "/team" => "groups#join_requests",           as: :join_requests
+  match "/team/approve_all" => "groups#approve_all", as: :approve_all
+  match "/team/reject_all" => "groups#reject_all",   as: :reject_all
 
-  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
