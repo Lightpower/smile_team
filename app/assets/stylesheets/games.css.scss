@@ -13,6 +13,22 @@ div.game.dozor_classic {
   margin-top: 5px;
   color: #FFFFFF;
 
+  A:link
+  {
+    text-decoration: underline;
+    color: #FFFFFF;
+  }
+  A:visited
+  {
+    text-decoration: underline;
+    color: #FFFFFF;
+  }
+  A:hover
+  {
+    text-decoration: none;
+    color: #FF8600;
+  }
+
   h1, h2, h3, h4 {
     color: #F90;
   }
@@ -30,6 +46,22 @@ div.game.dozor_lite {
   margin-top: 5px;
   color: #FFFFFF;
 
+  A:link
+  {
+    text-decoration: underline;
+    color: #FFFFFF;
+  }
+  A:visited
+  {
+    text-decoration: underline;
+    color: #FFFFFF;
+  }
+  A:hover
+  {
+    text-decoration: none;
+    color: #FF8600;
+  }
+
   h1, h2, h3, h4 {
     color: #F90;
   }
@@ -46,6 +78,25 @@ div.game.en_tochki {
   padding: 10px;
   margin-top: 5px;
   color: lime;
+
+  A:link
+  {
+    text-decoration: underline;
+    background-color: #0D3B00;
+    color: lime;
+  }
+  A:visited
+  {
+    text-decoration: underline;
+    background-color: #0D3B00;
+    color: lime;
+  }
+  A:hover
+  {
+    text-decoration: none;
+    background-color: #0D3B00;
+    color: #99ff90;
+  }
 
   h1, h2, h3, h4 {
     color: #FFFFFF;
