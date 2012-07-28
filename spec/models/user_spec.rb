@@ -40,10 +40,10 @@ describe User do
       @user = FactoryGirl.create(:guest_user)
     end
 
-    it "define is_admin?" do
+    it "define admin?" do
       user_admin = FactoryGirl.create(:admin_user)
-      @user.is_admin?.should be_false
-      user_admin.is_admin?.should be_true
+      @user.admin?.should be_false
+      user_admin.admin?.should be_true
     end
   end
 
