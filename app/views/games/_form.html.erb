@@ -22,6 +22,14 @@
   <%= f.number_field :number %>
 </div>
 <div class="field">
+  <%= f.label :link_to_site, "Ссылка на анонс", class: "caption" %>
+  <%= f.text_field :link_to_site %>
+</div>
+<div class="field">
+  <%= f.label :link_to_forum, "Ссылка на форум", class: "caption" %>
+  <%= f.text_field :link_to_forum %>
+</div>
+<div class="field">
   <%= f.label :legend, "Легенда", class: "caption" %>
   <%= f.text_area :legend %>
 </div>
