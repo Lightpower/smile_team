@@ -21,6 +21,17 @@ class User < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
 
+  class << self
+    def unapproved(group)
+      if group.blank?
+        []
+      else
+        where("group_id = ? and ((site_role is null) or (site_role=?) )", group.id, "guest")
+      end
+    end
+  end
+
+
   def is_admin?
     self.site_role == 'admin'
   end
