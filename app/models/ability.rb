@@ -8,7 +8,7 @@ class Ability
       can :manage, User, id: user.id
     end
 
-    if user.site_role == "guest"
+    if user.guest?
       can :read, Event
       can :read, Game
       cannot :manage, :site_role

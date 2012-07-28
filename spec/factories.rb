@@ -20,7 +20,7 @@ FactoryGirl.define do
     password_confirmation '123456'
 
     factory :guest_user do
-      site_role 'guest'
+      site_role nil
     end
 
     factory :mate_user do

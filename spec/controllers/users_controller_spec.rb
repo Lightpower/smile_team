@@ -52,7 +52,7 @@ describe UsersController do
   context "create" do
     before :each do
       authenticate_user(:admin_user)
-      params = {email: "email@example.ua", site_role: "guest", password: "123456", password_confirmation: "123456"}
+      params = {email: "email@example.ua", password: "123456", password_confirmation: "123456"}
       post :create, params: params
     end
 

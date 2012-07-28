@@ -39,9 +39,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     # Only Admin and team captain can set user's team role
-    if cannot? :manage, :site_role
-      @user.site_role = "guest"
-    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
