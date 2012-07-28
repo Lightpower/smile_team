@@ -7,6 +7,9 @@
       <div><b><%= current_user.show_name %> (<%= current_user.site_role || "guest" %>)</b></div>
       <li><%= link_to "Личная страница", user_path(current_user) %></li>
       <li><a href="#">Сменить пароль</a></li>
+      <% if can? :manage, :join_requests %>
+        <li><%= link_to "Приём в команду", join_requests_path %></li>
+      <% end %>
       <li><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
     <% end %>
   </ul>
