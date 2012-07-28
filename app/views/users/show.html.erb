@@ -12,7 +12,7 @@
   </p>
   <p>
     <b>Роль на сайте:</b>
-    <%= @user.site_role %>
+    <%= @user.site_role || "guest" %>
   </p>
   <p>
     <b>Роль в команде:</b>
@@ -33,14 +33,6 @@
   <p>
     <b>День рождения:</b>
     <%= @user.birthday %>
-  </p>
-  <p>
-    <b>Сыграно игр:</b>
-    <%= @user.game_count %>
-  </p>
-  <p>
-    <b>Очков:</b>
-    <%= @user.scores %>
   </p>
 </div>
 
