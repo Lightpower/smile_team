@@ -4,8 +4,6 @@ class GroupsController < ApplicationController
 
   def join_requests
     @users = User.unapproved(current_user.group)
-    debugger
-    1+1
   end
 
   def approve_all
