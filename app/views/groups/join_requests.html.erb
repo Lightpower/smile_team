@@ -13,15 +13,17 @@
     </tr>
     </thead>
 
-    <% @users.each do |user| %>
-      <tbody>
-      <tr>
-        <td><%= user.show_name%></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Принять', approve_join_request_path(user), id: "approve_button", class: "action_button" %></td>
-        <td><%= link_to 'Отклонить', reject_join_request_path(user), id: "reject_button", class: "action_button" %></td>
-      </tr>
-      </tbody>
+    <% if @users.present? %>
+      <% @users.each do |user| %>
+        <tbody>
+        <tr>
+          <td><%= user.show_name%></td>
+          <td><%= user.email %></td>
+          <td><%= link_to 'Принять', approve_join_request_path(user), id: "approve_button", class: "action_button" %></td>
+          <td><%= link_to 'Отклонить', reject_join_request_path(user), id: "reject_button", class: "action_button" %></td>
+        </tr>
+        </tbody>
+      <% end %>
     <% end %>
   </table>
 
