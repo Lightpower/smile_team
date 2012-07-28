@@ -1,8 +1,9 @@
 <div class="game <%= event.game.css_class %>">
+  <p>(автор: <%= event.author.show_name %>)</p>
   <h3><%= event.game.project.name %> <%= event.game.project_format.name %></h3>
   <b><%= event.start_date.strftime("%d.%m %H:%M") %></b>
   <h3>#<%= event.game.number %> - "<%= event.name %>"</h3>
-  <p>(автор: <%= event.author.show_name %>)</p>
+  <%= game_links(event.game) %>
 
   <%= link_to 'Подробней', event_path(event), class: "nav_button" %>
 </div>
