@@ -1,0 +1,29 @@
+<h1>Приём в команду</h1>
+<div class="content">
+  <%= link_to 'Принять всех', approve_all_path, id: "approve_button", class: "action_button" %>
+  <%= link_to 'Отклонить всех', reject_all_path, id: "reject_button", class: "action_button" %>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <% @users.each do |user| %>
+      <tbody>
+      <tr>
+        <td><%= user.show_name%></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Принять', approve_join_request_path(user), id: "approve_button", class: "action_button" %></td>
+        <td><%= link_to 'Отклонить', reject_join_request_path(user), id: "reject_button", class: "action_button" %></td>
+      </tr>
+      </tbody>
+    <% end %>
+  </table>
+
+
+</div>
