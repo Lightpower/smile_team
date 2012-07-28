@@ -1,3 +1,4 @@
+# coding: utf-8
 class UsersController < ApplicationController
   load_and_authorize_resource :user
 
@@ -84,4 +85,39 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  ##
+  # AJAX method for approving user's request of joining the team
+  #
+  def approve_join_request
+    authorize! :manage, :join_requests
+    @user.site_role = "mate"
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to join_requests_path, notice: "#{@user.show_name} принят в команду" }
+        format.js { render json: { result: true }, status: 200 }
+      else
+        format.html { redirect_to join_requests_path, error: @user.errors.full_messages }
+        format.js { render json: self.errors, status: 500 }
+      end
+    end
+  end
+
+  ##
+  # AJAX method for rejecting user's request of joining the team
+  #
+  def reject_join_request
+    authorize! :manage, :join_requests
+    @user.group = nil
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to join_requests_path, notice: "Запрос пользователя #{@user.show_name} отклонён" }
+        format.js { render json: { result: true }, status: 200 }
+      else
+        format.html { redirect_to join_requests_path, error: @user.errors.full_messages }
+        format.js { render json: @user.errors, status: 500 }
+      end
+    end
+  end
+
 end
