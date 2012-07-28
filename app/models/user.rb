@@ -31,10 +31,21 @@ class User < ActiveRecord::Base
     end
   end
 
-
-  def is_admin?
+  ##
+  # Check does user have Admin rules
+  #
+  def admin?
     self.site_role == 'admin'
   end
+
+  ##
+  # Check does user have guest rules
+  #
+  def guest?
+    self.site_role.blank?
+  end
+
+
 
   ##
   # Create the string with name of this user
@@ -66,7 +77,7 @@ class User < ActiveRecord::Base
   #
   # Returns {Boolean} - true if he is waiting for approving, otherwise false
   def waiting_for_approving?
-    self.group.present? && (self.site_role.blank? || (self.site_role == "guest"))
+    self.group.present? && self.guest?
   end
 
 end
