@@ -1,0 +1,83 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div.sent {
+  width: 16px;
+  height: 16px;
+  background:url(/images/sent.png) no-repeat center top;
+}
+div.sent_selected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/sent.png) no-repeat center top;
+}
+div.sent:hover, div.sent_selected:hover {
+  width: 16px;
+  height: 16px;
+  background:url(/images/sent_hovered.png) no-repeat center top;
+}
+
+div.read {
+  width: 16px;
+  height: 16px;
+  background:url(/images/read.png) no-repeat center top;
+}
+div.read_selected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/read_selected.png) no-repeat center top;
+}
+div.read:hover, div.read_selected:hover {
+  width: 16px;
+  height: 16px;
+  background:url(/images/read_hovered.png) no-repeat center top;
+}
+
+div.pending {
+  width: 16px;
+  height: 16px;
+  background:url(/images/pending.png) no-repeat center top;
+}
+div.pending_selected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/pending_selected.png) no-repeat center top;
+}
+div.pending:hover, div.pending_selected:hover {
+  width: 16px;
+  height: 16px;
+  background:url(/images/pending_hovered.png) no-repeat center top;
+}
+
+div.rejected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/rejected.png) no-repeat center top;
+}
+div.rejected_selected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/rejected_selected.png) no-repeat center top;
+}
+div.rejected:hover, div.rejected_selected:hover {
+  width: 16px;
+  height: 16px;
+  background:url(/images/rejected_hovered.png) no-repeat center top;
+}
+
+div.accepted {
+  width: 16px;
+  height: 16px;
+  background:url(/images/accepted.png) no-repeat center top;
+}
+div.accepted_selected {
+  width: 16px;
+  height: 16px;
+  background:url(/images/accepted_selected.png) no-repeat center top;
+}
+div.accepted:hover, div.accepted_selected:hover {
+  width: 16px;
+  height: 16px;
+  background:url(/images/accepted_hovered.png) no-repeat center top;
+}
+
