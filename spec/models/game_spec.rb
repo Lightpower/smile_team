@@ -18,6 +18,8 @@ describe Game do
   it { should have_db_column(:dopy_list).of_type(:string) }
   it { should have_db_column(:created_at).of_type(:datetime) }
   it { should have_db_column(:updated_at).of_type(:datetime) }
+  it { should have_db_column(:link_to_site).of_type(:string) }
+  it { should have_db_column(:link_to_forum).of_type(:string) }
 
   it { should have_db_index(:event_id).unique(true) }
 
