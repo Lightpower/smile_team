@@ -1,3 +1,4 @@
+# coding: utf-8
 module InvitesHelper
   ##
   # Show one icon which represents invite state
@@ -9,7 +10,7 @@ module InvitesHelper
       when Invite::STATES[:read]
         content_tag(:b, "...")
       when Invite::STATES[:pending]
-        content_tag(:b, "?")
+        content_tag(:b, "хз")
       when Invite::STATES[:rejected]
         content_tag(:b, "-1")
       when Invite::STATES[:accepted]
@@ -29,9 +30,9 @@ module InvitesHelper
       return_string += content_tag(:b, invite.user.login).html_safe
       return_string += " " if return_string.present?
     end
-    { :accepted => "+1", :rejected => "-1", :pending => "?" }.each do |elem|
+    { :accepted => "+1", :rejected => "-1", :pending => "хз" }.each do |elem|
       return_string += " " if return_string.present?
-      link_string = link_to(elem[1], class: "#{Invite::STATES[elem[0]]}_invite").html_safe
+      link_string = link_to(elem[1], "#", class: "#{Invite::STATES[elem[0]]}_invite").html_safe
       link_string = content_tag(:b, link_string).html_safe if invite.state == elem[0]
       return_string += link_string
     end
