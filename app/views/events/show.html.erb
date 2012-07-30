@@ -1,36 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="content">
+  <p>
+    <b>Название:</b>
+    <%= @event.name %>
+  </p>
 
-<p>
-  <b>Название:</b>
-  <%= @event.name %>
-</p>
+  <p>
+    <b>Описание:</b>
+    <%= @event.desc %>
+  </p>
 
-<p>
-  <b>Описание:</b>
-  <%= @event.desc %>
-</p>
+  <p>
+    <b>Тип:</b>
+    <%= @event.event_type %>
+  </p>
 
-<p>
-  <b>Тип:</b>
-  <%= @event.event_type %>
-</p>
+  <p>
+    <b>Начало:</b>
+    <%= @event.start_date %>
+  </p>
 
-<p>
-  <b>Начало:</b>
-  <%= @event.start_date %>
-</p>
+  <p>
+    <b>Автор:</b>
+    <%= @event.author.show_name %>
+  </p>
 
-<p>
-  <b>Конец:</b>
-  <%= @event.finish_date %>
-</p>
-
-<p>
-  <b>Автор:</b>
-  <%= @event.author.show_name %>
-</p>
-
-<%= render "games/show", game: @event.game %>
+  <%= render "games/show", game: @event.game %>
+</div>
 
 
 <%= link_to 'Править', edit_event_path(@event), class: "action_button" if can? :manage, @event %>
