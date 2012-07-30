@@ -36,6 +36,7 @@ class Ability
       can :manage, :site_role
 
       can :manage, Event
+      can :invite_all, Event, :user.group => user.group
       can :manage, Game
       can :manage, Invite, :user.group => user.group do |invite|
         invite.user.group == user.group
