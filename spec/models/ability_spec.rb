@@ -60,4 +60,20 @@ describe Ability do
     end
   end
 
+  context "Events" do
+    pending
+  end
+
+  context "Games" do
+    pending
+  end
+
+  context "Invites" do
+    pending
+  end
+
+  context "Team joining" do
+    pending
+  end
+
 end
