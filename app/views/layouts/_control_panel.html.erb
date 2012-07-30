@@ -1,0 +1,10 @@
+<% if current_user.present? && !current_user.guest? %>
+  <div id="admin_panel" class="nav">
+    <ul>
+      <div><b>Панель управления</b></div>
+      <% if can? :read, User %>
+        <li><a href="<%= users_path %>">Пользователи</a></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
