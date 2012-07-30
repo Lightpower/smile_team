@@ -8,6 +8,29 @@ class Invite < ActiveRecord::Base
   #
   STATES = {sent: "sent", read: "read", pending: "pending", rejected: "rejected", accepted: "accepted"}
 
+  class << self
+    ##
+    # Accepted invites
+    #
+    def accepted
+      where(state: STATES[:accepted])
+    end
+
+    ##
+    # Rejected invites
+    #
+    def rejected
+      where(state: STATES[:rejected])
+    end
+
+    ##
+    # Pending invites
+    #
+    def pending
+      where(state: STATES[:pending])
+    end
+  end
+
   ##
   # Accepting current invite
   #
