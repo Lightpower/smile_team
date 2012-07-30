@@ -85,5 +85,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def invite_all
+    @event.invite_all
+    respond_to do |format|
+      format.html { render :index }
+      format.js   { head :ok }
+    end
+
+  end
+
 end
 
