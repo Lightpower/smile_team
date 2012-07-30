@@ -1,5 +1,8 @@
 # coding: utf-8
 module GamesHelper
+  ##
+  # Form links for Game object
+  #
   def game_links(game)
     result = ""
     result << link_to("Перейти к анонсу на сайте", game.link_to_site) if game.link_to_site.present?
