@@ -9,8 +9,6 @@ class Ability
     end
 
     if user.guest?
-      can :read, Event
-      can :read, Game
       cannot :manage, :site_role
     elsif user.site_role == "mate"
       can :read, User, group_id: user.group_id
@@ -19,18 +17,29 @@ class Ability
 
       can :read, Event
       can :read, Game
+      can :read, Invite, :user.group => user.group do |invite|
+        invite.user.group == user.group
+      end
+      can :manage, Invite, user_id: user.id
+
     elsif user.site_role == "leader"
       can :read, User, group_id: user.group_id
       cannot :manage, :site_role
 
       can :manage, Event
       can :manage, Game
+      can :manage, Invite, :user.group => user.group do |invite|
+        invite.user.group == user.group
+      end
     elsif user.site_role == "captain"
       can :read, User, group_id: user.group_id
       can :manage, :site_role
 
       can :manage, Event
       can :manage, Game
+      can :manage, Invite, :user.group => user.group do |invite|
+        invite.user.group == user.group
+      end
 
       can :manage, :join_requests
     elsif user.site_role == "admin"
