@@ -20,6 +20,8 @@ SmileTeam::Application.routes.draw do
   match "/team/approve_all" => "groups#approve_all", as: :approve_all
   match "/team/reject_all" => "groups#reject_all",   as: :reject_all
 
+  resource :invites, only: [:update]
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
