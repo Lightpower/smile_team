@@ -1,0 +1,13 @@
+<% invite_size = event.invites.size %>
+<% accepted_size = event.invites.accepted.size %>
+<% rejected_size = event.invites.rejected.size %>
+<% unanswered_size = invite_size - (accepted_size + rejected_size)  %>
+
+<div class="">
+  <%= show_my_invite(current_user, event.invites) %><br>
+
+  <span>Приглашено: <%= invite_size %></span><br>
+  <span>Согласились: <%= accepted_size %></span><br>
+  <span>Отказались: <%= rejected_size %></span><br>
+  <span>Не ответили: <%= unanswered_size %></span>
+</div>
