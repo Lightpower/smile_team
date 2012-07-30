@@ -3,7 +3,11 @@ SmileTeam::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :events
+  resources :events do
+    member do
+      get "invite_all"
+    end
+  end
 
   # resource :users
   match "/users" => "users#index",          via: :get,    as: :users
