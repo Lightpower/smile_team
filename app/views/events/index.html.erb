@@ -9,7 +9,17 @@
 <% @events.each do |event| %>
   <% if event.event_type == "Game" %>
     <% if can? :read, event %>
-      <%= render "games/game", event:  event %>
+      <div class="row game <%= event.game.css_class %>">
+        <div class="span6">
+          <% if can? :invite_all, event %>
+            <%= link_to "Пригласить всех", invite_all_event_path(event), class: "action_button" %>
+          <% end %>
+          <%= render "games/game", event: event %>
+        </div>
+        <div class="span6">
+          <%= render "invites/index", event: event %>
+        </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>
