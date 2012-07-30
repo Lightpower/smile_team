@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
       return_string = "#{first_name} #{last_name}".strip
     end
     if login.present?
-      return_string = "#{return_string} (#{login})".strip
+      return_string = return_string.blank? ? login : "#{return_string} (#{login})".strip
     end
     if return_string.blank?
       return_string = email
@@ -80,4 +80,27 @@ class User < ActiveRecord::Base
     self.group.present? && self.guest?
   end
 
+  ##
+  # Accept invite of defined event
+  #
+  def accept_invite(event)
+    invite = Invite.where(user: self, event: event)
+    invite.accept if invite.present?
+  end
+
+  ##
+  # Reject invite of defined event
+  #
+  def reject_invite(event)
+    invite = Invite.where(user: self, event: event)
+    invite.reject if invite.present?
+  end
+
+  ##
+  # Pend invite of defined event
+  #
+  def pend_invite(event)
+    invite = Invite.where(user: self, event: event)
+    invite.pend if invite.present?
+  end
 end
