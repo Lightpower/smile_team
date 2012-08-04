@@ -32,16 +32,17 @@ module InvitesHelper
     end
     { :accepted => "+1", :rejected => "-1", :pending => "хз" }.each do |elem|
       return_string += " " if return_string.present?
-      link_string = link_to(elem[1], "#", class: "#{Invite::STATES[elem[0]]}_invite").html_safe
-      link_string = content_tag(:b, link_string).html_safe if invite.state == elem[0]
-      return_string += link_string
+      if invite.state != elem[0].to_s
+        return_string += link_to(elem[1], "#", class: "#{Invite::STATES[elem[0]]}_invite").html_safe
+      else
+        return_string += content_tag(:b, elem[1]).html_safe
+      end
     end
-
-    content_tag(:div, return_string.html_safe, { "data-id" => invite.id } ).html_safe
+    content_tag(:div, return_string.html_safe, { "data-url" => invites_path, "data-id" => invite.id } ).html_safe
   end
 
   ##
-  # Choose the invite of defined user from invite list
+  # Choose the invite of defined user from invite list and show it
   #
   def show_my_invite(user, invites)
     invite = invites.where(user_id: user.id).first
