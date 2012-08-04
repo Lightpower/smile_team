@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $("a.accepted_invite").live("click", function() {
+    ST.invites.accept(this);
+  });
+  $("a.rejected_invite").live("click", function() {
+    ST.invites.reject(this);
+  });
+  $("a.pending_invite").live("click", function() {
+    ST.invites.pending(this);
+  });
+});
