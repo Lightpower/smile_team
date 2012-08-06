@@ -81,3 +81,26 @@ div.accepted:hover, div.accepted_selected:hover {
   background:url(/images/accepted_hovered.png) no-repeat center top;
 }
 
+div.managed_invite {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #BBBBBB;
+  border-color: #000;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  padding: 2px;
+  margin: 1px;
+  color: #111;
+
+  A:link, A:visited {
+    text-decoration: underline;
+    color: #333;
+  }
+  A:hover
+  {
+    text-decoration: none;
+    color: #FF8600;
+  }
+
+}
