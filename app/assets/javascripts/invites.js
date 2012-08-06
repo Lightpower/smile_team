@@ -40,11 +40,11 @@ ST.invites = {
   // div - parent div which contains all links
   // state could be: accept, reject, pending
   set_visual_state: function(div, state) {
-    var name = div.children("b").first().text();
-    div.html("<b>" + name + "</b>" + "  "
-      + ((state == "accepted") ? "<b>+1</b>" : "<a href=\"#\" class=\"accepted_invite\">+1</a>") + " "
-      + ((state == "rejected") ? "<b>-1</b>" : "<a href=\"#\" class=\"rejected_invite\">-1</a>") + " "
-      + ((state == "pending") ?  "<b>хз</b>" : "<a href=\"#\" class=\"pending_invite\">хз</a>")
+    var name = div.children("div.horizontal").first().text();
+    div.html("<div class=\"horizontal\"><b>" + name + "</b></div>"
+      + ((state == "accepted") ? "<div class=\"accepted_selected\"></div>" : "<a href=\"#\" class=\"accepted\"><div class=\"accepted\"></div></a>")
+      + ((state == "rejected") ? "<div class=\"rejected_selected\"></div>" : "<a href=\"#\" class=\"rejected\"><div class=\"rejected\"></div></a>")
+      + ((state == "pending") ?  "<div class=\"pending_selected\"></div>" : "<a href=\"#\" class=\"pending\"><div class=\"pending\"></div></a>")
     );
   }
 };
