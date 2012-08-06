@@ -80,7 +80,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to events_path }
       format.json { head :ok }
     end
   end
@@ -88,7 +88,7 @@ class EventsController < ApplicationController
   def invite_all
     @event.invite_all
     respond_to do |format|
-      format.html { render :index }
+      format.html { redirect_to events_path }
       format.js   { head :ok }
     end
 
