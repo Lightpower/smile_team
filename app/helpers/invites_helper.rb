@@ -5,22 +5,9 @@ module InvitesHelper
   #
   def show_state_icon(invite, add_login=false)
     return_string = ""
-    return_string = invite.user.login + " " if add_login
-    return_string += case invite.state
-      when Invite::STATES[:sent]
-        "__"
-      when Invite::STATES[:read]
-        "..."
-      when Invite::STATES[:pending]
-        "хз"
-      when Invite::STATES[:rejected]
-        "-1"
-      when Invite::STATES[:accepted]
-        "+1"
-      else
-        "*"
-    end
-    content_tag(:span, content_tag(:b, return_string).html_safe, {class: "content"}).html_safe
+    return_string = content_tag(:div, content_tag(:b, invite.user.login), {class: "horizontal"}) + " " if add_login
+    return_string += content_tag(:div, "", {class: invite.state})
+    content_tag(:div, return_string.html_safe, {class: "show_invite"}).html_safe
   end
 
   ##
@@ -29,15 +16,15 @@ module InvitesHelper
   def edit_state_icons(invite, add_login=false)
     return_string = ""
     if add_login
-      return_string += content_tag(:b, invite.user.login).html_safe
+      return_string += content_tag(:div, content_tag(:b, invite.user.login), {class: "horizontal"})
       return_string += " " if return_string.present?
     end
-    { :accepted => "+1", :rejected => "-1", :pending => "хз" }.each do |elem|
+    %w"accepted rejected pending".each do |elem|
       return_string += " " if return_string.present?
-      if invite.state != elem[0].to_s
-        return_string += link_to(elem[1], "#", class: "#{Invite::STATES[elem[0]]}_invite").html_safe
+      if invite.state != elem.to_s
+        return_string += link_to(content_tag(:div, "", {class: elem}), "#", class: elem).html_safe
       else
-        return_string += content_tag(:b, elem[1]).html_safe
+        return_string += content_tag(:div, "", {class: "#{elem}_selected"})
       end
     end
     content_tag(:div, return_string.html_safe, { "data-url" => invites_path, "data-id" => invite.id, class: "managed_invite" } ).html_safe
