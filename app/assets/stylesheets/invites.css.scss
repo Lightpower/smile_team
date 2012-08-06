@@ -2,83 +2,113 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 div.sent {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/sent.png) no-repeat center top;
+  margin: 2px;
 }
 div.sent_selected {
+  float:left;
   width: 16px;
   height: 16px;
-  background:url(/images/sent.png) no-repeat center top;
+  background:url(/images/sent_selected.png) no-repeat center top;
+  border: 2px solid;
 }
 div.sent:hover, div.sent_selected:hover {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/sent_hovered.png) no-repeat center top;
+  margin: 2px;
 }
 
 div.read {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/read.png) no-repeat center top;
+  margin: 2px;
 }
 div.read_selected {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/read_selected.png) no-repeat center top;
+  border: 2px solid;
 }
 div.read:hover, div.read_selected:hover {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/read_hovered.png) no-repeat center top;
+  margin: 2px;
 }
 
 div.pending {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/pending.png) no-repeat center top;
+  margin: 2px;
 }
 div.pending_selected {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/pending_selected.png) no-repeat center top;
+  border: 2px solid;
 }
 div.pending:hover, div.pending_selected:hover {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/pending_hovered.png) no-repeat center top;
+  margin: 2px;
 }
 
 div.rejected {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/rejected.png) no-repeat center top;
+  margin: 2px;
 }
 div.rejected_selected {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/rejected_selected.png) no-repeat center top;
+  border: 2px solid;
 }
 div.rejected:hover, div.rejected_selected:hover {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/rejected_hovered.png) no-repeat center top;
+  margin: 2px;
 }
 
 div.accepted {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/accepted.png) no-repeat center top;
+  margin: 2px;
 }
 div.accepted_selected {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/accepted_selected.png) no-repeat center top;
+  border: 2px solid;
 }
 div.accepted:hover, div.accepted_selected:hover {
+  float:left;
   width: 16px;
   height: 16px;
   background:url(/images/accepted_hovered.png) no-repeat center top;
+  margin: 2px;
 }
 
 div.managed_invite {
@@ -92,15 +122,20 @@ div.managed_invite {
   padding: 2px;
   margin: 1px;
   color: #111;
+  height: 17px;
+}
 
-  A:link, A:visited {
-    text-decoration: underline;
-    color: #333;
-  }
-  A:hover
-  {
-    text-decoration: none;
-    color: #FF8600;
-  }
+div.show_invite {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #DDD;
+  border-color: #000;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  padding: 2px;
+  margin: 1px;
+  color: #222;
+  height: 16px;
 
 }
