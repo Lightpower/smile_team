@@ -33,8 +33,21 @@ div.content {
     border-width: 1px 1px 1px 1px;
     border-style: solid;
     padding: 10px;
-    margin-top: 5px;
+    margin: 5px;
 }
+
+div.content span.content{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #BBBBBB;
+    border-color: #000000;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    padding: 1px;
+    margin: 1px;
+}
+
 
 div.nav {
     -webkit-border-radius: 10px;
