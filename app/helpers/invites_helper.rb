@@ -3,22 +3,24 @@ module InvitesHelper
   ##
   # Show one icon which represents invite state
   #
-  def show_state_icon(invite)
-    return_string = case invite.state
+  def show_state_icon(invite, add_login=false)
+    return_string = ""
+    return_string = invite.user.login + " " if add_login
+    return_string += case invite.state
       when Invite::STATES[:sent]
-        content_tag(:b, "__")
+        "__"
       when Invite::STATES[:read]
-        content_tag(:b, "...")
+        "..."
       when Invite::STATES[:pending]
-        content_tag(:b, "хз")
+        "хз"
       when Invite::STATES[:rejected]
-        content_tag(:b, "-1")
+        "-1"
       when Invite::STATES[:accepted]
-        content_tag(:b, "+1")
+        "+1"
       else
-        content_tag(:b, "*")
+        "*"
     end
-    return_string.html_safe
+    content_tag(:span, content_tag(:b, return_string).html_safe, {class: "content"}).html_safe
   end
 
   ##
@@ -38,7 +40,7 @@ module InvitesHelper
         return_string += content_tag(:b, elem[1]).html_safe
       end
     end
-    content_tag(:div, return_string.html_safe, { "data-url" => invites_path, "data-id" => invite.id } ).html_safe
+    content_tag(:div, return_string.html_safe, { "data-url" => invites_path, "data-id" => invite.id, class: "managed_invite" } ).html_safe
   end
 
   ##
