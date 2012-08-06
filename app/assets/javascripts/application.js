@@ -9,13 +9,16 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("a.accepted_invite").live("click", function() {
+  $("a.accepted").live("click", function(e) {
     ST.invites.accept(this);
+    e.preventDefault();
   });
-  $("a.rejected_invite").live("click", function() {
+  $("a.rejected").live("click", function(e) {
     ST.invites.reject(this);
+    e.preventDefault();
   });
-  $("a.pending_invite").live("click", function() {
+  $("a.pending").live("click", function(e) {
     ST.invites.pending(this);
+    e.preventDefault();
   });
 });
