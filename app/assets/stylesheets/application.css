@@ -108,3 +108,7 @@ textarea {
 span.caption, label.caption {
     font-weight: bold;
 }
+
+div.horizontal {
+    float:left;
+}
