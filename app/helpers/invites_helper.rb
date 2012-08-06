@@ -5,7 +5,7 @@ module InvitesHelper
   #
   def show_state_icon(invite, add_login=false)
     return_string = ""
-    return_string = content_tag(:div, content_tag(:b, invite.user.login), {class: "horizontal"}) + " " if add_login
+    return_string = content_tag(:div, content_tag(:b, link_to(invite.user.login, user_path(invite.user))), {class: "horizontal"}) + " " if add_login
     return_string += content_tag(:div, "", {class: invite.state})
     content_tag(:div, return_string.html_safe, {class: "show_invite"}).html_safe
   end
@@ -16,7 +16,7 @@ module InvitesHelper
   def edit_state_icons(invite, add_login=false)
     return_string = ""
     if add_login
-      return_string += content_tag(:div, content_tag(:b, invite.user.login), {class: "horizontal"})
+      return_string += content_tag(:div, content_tag(:b, link_to(invite.user.login, user_path(invite.user))), {class: "horizontal"})
       return_string += " " if return_string.present?
     end
     %w"accepted rejected pending".each do |elem|
