@@ -1,4 +1,5 @@
-<div class="content">
+<div class="row content">
+  <div class="span4">
   <p>
     <b>Название:</b>
     <%= @event.name %>
@@ -25,8 +26,16 @@
   </p>
 
   <%= render "games/show", game: @event.game %>
-</div>
 
+  </div>
+  <div class="span4">
+    <%= show_my_invite(current_user, @event.invites) %>
+
+    <% @event.invites.each do |invite| %>
+        <%= show_state_icon(invite, true) unless invite.user == current_user %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Править', edit_event_path(@event), class: "action_button" if can? :manage, @event %>
 <%= link_to 'Назад', events_path, class: "action_button" %>
